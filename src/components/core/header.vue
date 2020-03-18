@@ -1,16 +1,22 @@
 <template>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <i class="fab fa-youtube fa-5x pointer" style="color:darkred;"></i>
+  <router-link class="routerLink" to="/">
+  <i class="fab fa-youtube fa-4x pointer" style="color:white;"></i>
+  </router-link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
+          <router-link class="routerLink" to="/signin">
             <a class="nav-link">Sign In</a>
+          </router-link>
         </li>
         <li class="nav-item">
+          <router-link class="routerLink" to="/signup">
             <a class="nav-link">Sign Up</a>
+          </router-link>
         </li>
     </ul>
       <!-- <ul class="navbar-nav ml-auto">

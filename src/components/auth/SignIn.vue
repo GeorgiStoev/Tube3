@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
         <label for="password" class="text-info">Password</label>
-        <input name="password" type="password" class="form-control" id="password" placeholder="Password..." required ngModel>
+        <input name="password" type="password" class="form-control" id="password" placeholder="Password...">
     </div>
     <div class="alert alert-danger text-center">
         Password is required!
