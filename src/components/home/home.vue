@@ -1,5 +1,24 @@
 <template>
-    
+    <div class="jumbotron">
+    <div class="page-header">
+        <div class="pull-left">
+            <!-- <ng-template [ngIf]="!isAuth"> -->
+                <h2 class="display-3 text-muted">Welcome, Guest!</h2>
+            <!-- </ng-template> -->
+            <!-- <ng-template [ngIf]="isAuth">
+                <ng-template [ngIf]="userFullName">
+                    <h2 class="display-3 text-muted">Welcome, {{userFullName}}!</h2>
+                </ng-template>
+            </ng-template> -->
+        </div>
+        <div class="clearfix">
+            <h3 class="text-info">Want to see Tube1?
+                <a class="nav-link active" href="http://georgistoev-001-site1.htempurl.com/">Click Here</a>
+            </h3>
+        </div>
+      </div>
+  </div>
+ <!-- <app-video-list></app-video-list> -->
 </template>
 
 <script>
