@@ -29,7 +29,7 @@
 
 <script>
 export default {
-    name: 'login',
+    name: 'SignIn',
     data: function() {
         return { };
     }
