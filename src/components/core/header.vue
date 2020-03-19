@@ -19,23 +19,40 @@
           </router-link>
         </li>
     </ul>
-      <!-- <ul class="navbar-nav ml-auto">
+       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <i class="fab fa-searchengin fa-3x" style="color:darkorange;" routerLink="/video/search"></i>
-          <i class="fas fa-plus-square fa-3x pointer" routerLink="video/create"></i>
-          <i class="fas fa-heart fa-3x pointer" style="color:#FF0000;" routerLink="/video/favourites"></i>
-          <i class="fas fa-user fa-3x pointer" style="color:black;" (click)="profile()"></i>
-          <i class="fas fa-sign-out-alt fa-3x pointer" (click)="logout()" routerLink=""></i>
+          <i class="fab fa-searchengin fa-3x" style="color:darkorange;"></i>
+          <i class="fas fa-plus-square fa-3x pointer"></i>
+          <i class="fas fa-heart fa-3x pointer" style="color:#FF0000;"></i>
+          <i class="fas fa-user fa-3x pointer" style="color:black;"></i>
+          <i v-on:click="logout" class="fas fa-sign-out-alt fa-3x pointer"></i>
         </li>
-      </ul> -->
+      </ul>
   </div>
 </nav>
 
 </template>
 
 <script>
+import firebase from 'firebase';
 export default {
-    
+    name: 'navbar',
+    data() {
+      return {
+        isLoggedIn: false,
+        currentUser: false
+      };
+    },
+    methods: {
+      logout: function() {
+        firebase
+          .auth()
+          .signOut()
+          .then(() => {
+            this.$router.push('/signin');
+          });
+      }
+    }
 }
 </script>
 
