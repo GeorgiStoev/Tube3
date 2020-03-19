@@ -8,18 +8,18 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li v-if="!isLoggedIn" class="nav-item">
           <router-link class="routerLink" to="/signin">
             <a class="nav-link">Sign In</a>
           </router-link>
         </li>
-        <li class="nav-item">
+        <li v-if="!isLoggedIn" class="nav-item">
           <router-link class="routerLink" to="/signup">
             <a class="nav-link">Sign Up</a>
           </router-link>
         </li>
     </ul>
-       <ul class="navbar-nav ml-auto">
+       <ul v-if="isLoggedIn" class="navbar-nav ml-auto">
         <li class="nav-item">
           <i class="fab fa-searchengin fa-3x" style="color:darkorange;"></i>
           <i class="fas fa-plus-square fa-3x pointer"></i>
@@ -43,13 +43,19 @@ export default {
         currentUser: false
       };
     },
+    created() {
+      if(firebase.auth().currentUser) {
+        this.isLoggedIn = true;
+        this.currentUser = firebase.auth().currentUser.email;
+      }
+    },
     methods: {
       logout: function() {
         firebase
           .auth()
           .signOut()
           .then(() => {
-            this.$router.push('/signin');
+            this.$router.go({ path: this.$router.path });
           });
       }
     }
