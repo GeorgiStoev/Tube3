@@ -5,7 +5,7 @@
 <form class="mx-auto w-50">
     <div class="form-group">
         <label for="email" class="text-info">Email</label>
-        <input name="email" type="email" class="form-control" id="email" placeholder="Email...">
+        <input name="email" type="email" class="form-control" id="email" placeholder="Email..." v-model="email">
     </div>
     <div class="alert alert-danger text-center">
         Email is required!
@@ -15,23 +15,43 @@
     </div>
     <div class="form-group">
         <label for="password" class="text-info">Password</label>
-        <input name="password" type="password" class="form-control" id="password" placeholder="Password...">
+        <input name="password" type="password" class="form-control" id="password" placeholder="Password..." v-model="password">
     </div>
     <div class="alert alert-danger text-center">
         Password is required!
     </div>
     <div class="button-holder d-flex justify-content-center">
-        <button type="submit" class="btn btn-info btn-md align-items-md text-white">Sign In</button>
+        <button v-on:click="login" type="submit" class="btn btn-info btn-md align-items-md text-white">Sign In</button>
     </div>
 </form>
 </div>
 </template>
 
 <script>
+import firebase from 'firebase';
+
 export default {
     name: 'SignIn',
     data: function() {
-        return { };
+        return {
+            email: '',
+            password: ''
+        };
+    },
+    methods: {
+        login: function(e) {
+            firebase
+                .auth()
+                .signInWithEmailAndPassword(this.email, this.password)
+                .then(user => {
+                    alert(`You are logged in as ${user.email}`);
+                    this.$router.push('/');
+                },
+                err => {
+                    alert(err.message);
+                });
+            e.preventDefault();
+        }
     }
 }
 </script>
