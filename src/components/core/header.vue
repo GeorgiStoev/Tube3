@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import authService from '../../services/AuthService';
+
 import firebase from 'firebase';
 export default {
     name: 'navbar',
@@ -51,12 +53,13 @@ export default {
     },
     methods: {
       logout: function() {
-        firebase
-          .auth()
-          .signOut()
-          .then(() => {
-            this.$router.go({ path: this.$router.path });
-          });
+      authService.signOut();
+        // firebase
+        //   .auth()
+        //   .signOut()
+        //   .then(() => {
+        //     this.$router.go({ path: this.$router.path });
+        //   });
       }
     }
 }

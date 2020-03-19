@@ -28,7 +28,8 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+//import firebase from 'firebase';
+import authService from '../../services/AuthService';
 
 export default {
     name: 'SignIn',
@@ -40,16 +41,17 @@ export default {
     },
     methods: {
         login: function(e) {
-            firebase
-                .auth()
-                .signInWithEmailAndPassword(this.email, this.password)
-                .then(user => {
-                    alert(`You are logged in as ${user.email}`);
-                    this.$router.go({ path: this.$router.path });
-                },
-                err => {
-                    alert(err.message);
-                });
+            authService.signIn(this.email, this.password);
+            // firebase
+            //     .auth()
+            //     .signInWithEmailAndPassword(this.email, this.password)
+            //     .then(user => {
+            //         alert(`You are logged in as ${user.email}`);
+            //         this.$router.go({ path: this.$router.path });
+            //     },
+            //     err => {
+            //         alert(err.message);
+            //     });
             e.preventDefault();
         }
     }

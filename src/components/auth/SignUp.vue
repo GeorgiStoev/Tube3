@@ -64,7 +64,10 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+
+import authService from '../../services/AuthService';
+
+//import firebase from 'firebase';
 
 export default {
     name: 'SignUp',
@@ -79,16 +82,17 @@ export default {
     },
     methods: {
         register: function(e) {
-            firebase
-                .auth()
-                .createUserWithEmailAndPassword(this.email, this.password)
-                .then(user => {
-                    alert(`Account created for ${user.email}`);
-                    this.$router.go({ path: this.$router.path });
-                },
-                err => {
-                    alert(err.message);
-                });
+            authService.signUp(this.email, this.password);
+            // firebase
+            //     .auth()
+            //     .createUserWithEmailAndPassword(this.email, this.password)
+            //     .then(user => {
+            //         alert(`Account created for ${user.email}`);
+            //         this.$router.go({ path: this.$router.path });
+            //     },
+            //     err => {
+            //         alert(err.message);
+            //     });
             e.preventDefault();
         }
     }
