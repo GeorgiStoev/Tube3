@@ -1,21 +1,21 @@
 <template>
-    <div class="card">
-        <iframe :src="videoUrl" width="254" height="250" frameborder="0" webkitallowfullscreen mozallowfullscreen
+    <div class="card" style="width: 17rem;">
+  <iframe :src="videoUrl" width="270" height="250" frameborder="0" webkitallowfullscreen mozallowfullscreen
             allowfullscreen></iframe>
-        <div class="card-body">
-           <h5 class="card-title"><strong>{{video.name}}</strong></h5>
-            <!-- <ng-template [ngIf]="!isAuth"> -->
-                <button type="button" class="btn btn-outline-danger">play</button>
-            <!-- </ng-template> -->
-            <!-- <ng-template [ngIf]="isAuth">
-                <button type="button" class="btn btn-outline-danger" [routerLink]="['/video/watch', video.id]">play</button>
-            </ng-template> -->
-        </div>
-    </div>
+  <div class="card-body">
+    <h5 class="card-title"><strong>{{video.name}}</strong></h5>
+    <router-link v-if="!isLoggedIn" class="routerLink" to="/signin">
+           <a class="btn btn-secondary">Watch Video</a>
+     </router-link>
+    <router-link v-if="isLoggedIn" class="routerLink" to="">
+           <a class="btn btn-outline-primary">Watch Video</a>
+     </router-link>
+  </div>
+</div>
 </template>
 
 <script>
-
+import firebase from 'firebase';
 export default {
     name: 'Video',
     props: [ 'video'],
@@ -26,6 +26,11 @@ export default {
     },
     methods: {
         
+    },
+    created() {
+      if(firebase.auth().currentUser) {
+        this.isLoggedIn = true;
+      }
     }
 }
 </script>
