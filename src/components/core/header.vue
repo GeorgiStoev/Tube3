@@ -21,11 +21,19 @@
     </ul>
        <ul v-if="isLoggedIn" class="navbar-nav ml-auto">
         <li class="nav-item">
-          <i class="fab fa-searchengin fa-3x" style="color:darkorange;"></i>
-          <i class="fas fa-plus-square fa-3x pointer"></i>
-          <i class="fas fa-heart fa-3x pointer" style="color:#FF0000;"></i>
-          <i class="fas fa-user fa-3x pointer" style="color:black;"></i>
-          <i v-on:click="logout" class="fas fa-sign-out-alt fa-3x pointer"></i>
+          <i><router-link class="routerLink" to="">
+            <i class="fab fa-searchengin fa-3x" style="color:darkorange;"></i>
+          </router-link></i>
+          <i><router-link class="routerLink" to="/video-create">
+            <i class="fas fa-plus-square fa-3x pointer" style="color:white;"></i>
+          </router-link></i>
+          <i><router-link class="routerLink" to="">
+            <i class="fas fa-heart fa-3x pointer" style="color:#FF0000;"></i>
+          </router-link></i>
+          <i><router-link class="routerLink" to="">
+           <i class="fas fa-user fa-3x pointer" style="color:black;"></i>
+          </router-link></i>
+          <i v-on:click="logout" class="da fas fa-sign-out-alt fa-3x pointer"></i>
         </li>
       </ul>
   </div>

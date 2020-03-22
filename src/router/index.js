@@ -29,6 +29,14 @@ let router = new Router({
              meta: {
                  requiresGuest: true
              }
+        },
+        {
+            path: '/video-create',
+            name: 'Video-Create',
+            component: () => import('../components/videos/video-create/Video-Create.vue'),
+             meta: {
+                 requiresAuth: true
+             }
         }
     ]
 });
