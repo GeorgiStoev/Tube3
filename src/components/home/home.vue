@@ -17,8 +17,8 @@
             </h3>
         </div>
       </div>
+       <Video-List></Video-List>
   </div>
- <!-- <app-video-list></app-video-list> -->
 </template>
 
 <script>
