@@ -7,7 +7,7 @@
     <router-link v-if="!isLoggedIn" class="routerLink" to="/signin">
            <a class="btn btn-secondary">Watch Video</a>
      </router-link>
-    <router-link v-if="isLoggedIn" class="routerLink" to="">
+    <router-link v-if="isLoggedIn" class="routerLink" :to="{ name: 'Video-Watch', params: { videoId: video.id } }">
            <a class="btn btn-outline-primary">Watch Video</a>
      </router-link>
   </div>

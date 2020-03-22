@@ -31,7 +31,15 @@ let router = new Router({
              }
         },
         {
-            path: '/video-create',
+            path: '/video-watch/:videoId',
+            name: 'Video-Watch',
+            component: () => import('../components/videos/video-watch/Video-Watch.vue'),
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/video-create/:videoId',
             name: 'Video-Create',
             component: () => import('../components/videos/video-create/Video-Create.vue'),
              meta: {
