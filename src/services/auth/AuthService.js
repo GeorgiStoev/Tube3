@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import Router from '../router';
+import Router from '../../router';
 
 export default {
     signIn(email, password) {

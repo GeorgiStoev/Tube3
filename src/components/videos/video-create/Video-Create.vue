@@ -5,14 +5,14 @@
 <form class="mx-auto w-50">
     <div class="form-group">
         <label for="name" class="text-info">Name</label>
-        <input name="name" type="name" class="form-control" id="name" placeholder="Name...">
+        <input name="name" type="name" class="form-control" id="name" placeholder="Name..." v-model="name">
     </div>
     <div class="alert alert-danger text-center">
         Name is required!
     </div>
     <div class="form-group">
         <label for="category" class="text-info">Category:</label>
-        <select name="category" class="form-control text-primary" id="category" for="Category">
+        <select name="category" class="form-control text-primary" id="category" for="Category" v-model="category">
             <option value="" selected disabled>--- Select Video Category ---</option>
             <option>Music</option>
             <option>News</option>
@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
         <label for="videoUrl" class="text-info">Video Url</label>
-        <input name="videoUrl" type="name" class="form-control" id="videoUrl" placeholder="Video Url...">
+        <input name="videoUrl" type="name" class="form-control" id="videoUrl" placeholder="Video Url..." v-model="videoUrl">
     </div>
     <div class="alert alert-danger text-center">
         Video Url is required!
@@ -41,6 +41,7 @@ export default {
     name: 'Video-Create',
     data: function() {
         return {
+            name: 'kyr'
         };
     },
     methods: {

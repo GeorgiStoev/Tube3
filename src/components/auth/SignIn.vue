@@ -29,7 +29,7 @@
 
 <script>
 //import firebase from 'firebase';
-import authService from '../../services/AuthService';
+import authService from '../../services/auth/AuthService';
 
 export default {
     name: 'SignIn',

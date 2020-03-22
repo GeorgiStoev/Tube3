@@ -65,7 +65,7 @@
 
 <script>
 
-import authService from '../../services/AuthService';
+import authService from '../../services/auth/AuthService';
 
 //import firebase from 'firebase';
 

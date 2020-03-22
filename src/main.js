@@ -4,14 +4,26 @@ import App from './App.vue';
 import router from './router';
 import firebaseConfig from './firebase/firebaseConfig';
 import 'bootstrap/dist/css/bootstrap.css';
-//import 'bootstrap-vue/dist/bootstrap-vue.css';
 import '@fortawesome/fontawesome-free/css/all.css'
-//import '@fortawesome/fontawesome-free/js/all.js'
 import firebase from 'firebase';
 
 require('firebase/firestore');
 firebase.initializeApp(firebaseConfig);
 Vue.prototype.$firebase = firebase;
+
+const db = firebase.firestore();
+
+ const videosCollection = db.collection('videos');
+ videosCollection
+  .onSnapshot((videoRef) => {
+    const videos = [];
+    videoRef.forEach((doc) => {
+      const video = doc.data();
+      video.id = doc.id;
+      console.log(video);
+      videos.push(video);
+    })
+  })
 
 Vue.use(BootstrapVue);
 
