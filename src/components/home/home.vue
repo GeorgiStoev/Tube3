@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="jumbotron">
     <div class="page-header">
         <div class="pull-left">
@@ -17,13 +18,17 @@
             </h3>
         </div>
       </div>
-       <Video-List></Video-List>
   </div>
+  <Video-List />
+</div>
 </template>
 
 <script>
+import VideoList from '../videos/video-list/Video-List';
 export default {
-    
+    components: {
+     VideoList
+  }
 }
 </script>
 
