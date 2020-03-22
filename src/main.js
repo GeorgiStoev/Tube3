@@ -7,6 +7,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css'
 import firebase from 'firebase';
 
+
+import "../node_modules/bootswatch/dist/lumen/bootstrap.min.css";
+// import "jquery";
+// import "popper.js";
+
+
 require('firebase/firestore');
 firebase.initializeApp(firebaseConfig);
 Vue.prototype.$firebase = firebase;

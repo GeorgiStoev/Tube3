@@ -3,9 +3,9 @@
         <iframe :src="videoUrl" width="254" height="250" frameborder="0" webkitallowfullscreen mozallowfullscreen
             allowfullscreen></iframe>
         <div class="card-body">
-            <h5 class="card-title">{{video.name}}</h5>
+            <h5 class="card-title text-center">{{video.name}}</h5>
             <!-- <ng-template [ngIf]="!isAuth"> -->
-                <button type="button" class="btn btn-outline-danger">play</button>
+                <button type="button" class="btn btn-outline-danger align-center">play</button>
             <!-- </ng-template> -->
             <!-- <ng-template [ngIf]="isAuth">
                 <button type="button" class="btn btn-outline-danger" [routerLink]="['/video/watch', video.id]">play</button>
@@ -17,7 +17,7 @@
 <script>
 
 export default {
-    name: 'video',
+    name: 'Video',
     props: [ 'video'],
     data: function() {
         return {
