@@ -21,7 +21,7 @@
         Password is required!
     </div>
     <div class="button-holder d-flex justify-content-center">
-        <button v-on:click="login" type="submit" class="btn btn-info btn-md align-items-md text-white">Sign In</button>
+        <button v-on:click="login" type="submit" class="btn btn-primary btn-md align-items-md text-white">Sign In</button>
     </div>
 </form>
 </div>

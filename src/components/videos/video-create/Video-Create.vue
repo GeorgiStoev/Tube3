@@ -30,22 +30,30 @@
         Video Url is required!
     </div>
     <div class="button-holder d-flex justify-content-center">
-        <button type="submit" class="btn btn-info btn-md align-items-md text-white">Add</button>
+        <button v-on:click="add" type="submit" class="btn btn-primary btn-md align-items-md text-white">Add</button>
     </div>
 </form>
     </div>
 </template>
 
 <script>
+
+import VideoService from '../../../services/video/VideoService';
+
 export default {
     name: 'Video-Create',
     data: function() {
         return {
-            name: 'kyr'
+            name: "",
+            category: "",
+            videoUrl: ""
         };
     },
     methods: {
-        
+        add: function(e) {
+            VideoService.add(this.name, this.category, this.videoUrl);
+            e.preventDefault();
+        }
     }
 }
 </script>

@@ -1,12 +1,12 @@
 import firebase from 'firebase';
-//import Router from '../../router';
+import Router from '../../router';
 
 export default {
     listByCategory(category) {
         const videos = [];
         firebase
             .firestore()
-            .collection('videos')
+            .collection("videos")
             .where("category", '==', category)
             .onSnapshot((videoRef) => {
                 videoRef.forEach((doc) => {
@@ -16,5 +16,22 @@ export default {
                 });
             });
         return videos;
+    },
+    add(name, category, videoUrl) {
+        firebase
+            .firestore()
+            .collection("videos")
+            .add({
+                name,
+                category,
+                videoUrl
+            })
+            .then(() => {
+                Router.push("/");
+            })
+            .catch((err) => {
+                alert(err.message);
+            });
+            
     }
 }
