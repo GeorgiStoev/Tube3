@@ -47,5 +47,17 @@ export default {
           .then(() => {
             Router.go({ path: Router.path });
           });
+    },
+    getUserById(id) {
+        return firebase
+            .firestore()
+            .collection('users')
+            .where("uid", "==", id);
+            // .onSnapshot((userRef) => {
+            //     userRef.forEach((doc) => {
+            //         user = doc.data();
+            //         console.log(user)
+            //     });
+            // });
     }
 }
