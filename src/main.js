@@ -17,19 +17,6 @@ require('firebase/firestore');
 firebase.initializeApp(firebaseConfig);
 Vue.prototype.$firebase = firebase;
 
-const db = firebase.firestore();
-
- const videosCollection = db.collection('videos');
- videosCollection
-  .onSnapshot((videoRef) => {
-    const videos = [];
-    videoRef.forEach((doc) => {
-      const video = doc.data();
-      video.id = doc.id;
-      console.log(video);
-      videos.push(video);
-    })
-  })
 
 Vue.use(BootstrapVue);
 

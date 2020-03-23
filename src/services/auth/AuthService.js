@@ -13,13 +13,28 @@ export default {
                 alert(err.message);
             });
     },
-    signUp(email, password) {
+    signUp(firstName, lastName, imageUrl, email, password) {
         firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then(user => {
-                alert(`Account created for ${user.email}`);
-                Router.go({ path: Router.path });
+                firebase
+                    .firestore()
+                    .collection("users")
+                    .add({
+                        firstName,
+                        lastName,
+                        imageUrl,
+                        favourites: [],
+                        uid: firebase.auth().currentUser.uid
+                    })
+                    .then(() => {
+                        alert(`Account created for ${user.email}`);
+                        Router.go({ path: Router.path });
+                    })
+                    .catch((err) => {
+                        alert(err.message);
+                    });
             },
             err => {
                 alert(err.message);

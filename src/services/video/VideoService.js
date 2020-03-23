@@ -24,7 +24,8 @@ export default {
             .add({
                 name,
                 category,
-                videoUrl
+                videoUrl,
+                uploaderId: firebase.auth().currentUser.uid
             })
             .then(() => {
                 Router.push("/");

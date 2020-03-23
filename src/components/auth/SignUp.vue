@@ -82,7 +82,7 @@ export default {
     },
     methods: {
         register: function(e) {
-            authService.signUp(this.email, this.password);
+            authService.signUp(this.firstName, this.lastName, this.imageUrl, this.email, this.password);
             // firebase
             //     .auth()
             //     .createUserWithEmailAndPassword(this.email, this.password)

@@ -39,7 +39,7 @@ let router = new Router({
             }
         },
         {
-            path: '/video-create/:videoId',
+            path: '/video-create',
             name: 'Video-Create',
             component: () => import('../components/videos/video-create/Video-Create.vue'),
              meta: {

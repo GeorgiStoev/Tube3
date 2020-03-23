@@ -18,9 +18,10 @@
 import firebase from 'firebase';
 export default {
     name: 'Video',
-    props: [ 'video'],
+    props: [ 'video' ],
     data: function() {
         return {
+            isLoggedIn: false,
             videoUrl: this.video.videoUrl.replace('watch?v=', 'embed/')
         };
     },
