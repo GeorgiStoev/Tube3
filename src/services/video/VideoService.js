@@ -34,5 +34,12 @@ export default {
                 alert(err.message);
             });
             
+    },
+    getVideoById(id) {
+        return firebase
+            .firestore()
+            .collection('videos')
+            .doc(id)
+            .get();
     }
 }
