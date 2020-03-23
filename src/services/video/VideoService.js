@@ -24,7 +24,7 @@ export default {
             .add({
                 name,
                 category,
-                videoUrl,
+                videoUrl: videoUrl.replace('watch?v=', 'embed/'),
                 uploaderId: firebase.auth().currentUser.uid
             })
             .then(() => {

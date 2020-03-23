@@ -1,6 +1,6 @@
 <template>
     <div class="card" style="width: 17rem;">
-  <iframe :src="videoUrl" width="270" height="250" frameborder="0" webkitallowfullscreen mozallowfullscreen
+  <iframe :src="video.videoUrl" width="270" height="250" frameborder="0" webkitallowfullscreen mozallowfullscreen
             allowfullscreen></iframe>
   <div class="card-body">
     <h5 class="card-title"><strong>{{video.name}}</strong></h5>
@@ -21,8 +21,8 @@ export default {
     props: [ 'video' ],
     data: function() {
         return {
-            isLoggedIn: false,
-            videoUrl: this.video.videoUrl.replace('watch?v=', 'embed/')
+             isLoggedIn: false
+            // videoUrl: this.video.videoUrl.replace('watch?v=', 'embed/')
         };
     },
     methods: {
