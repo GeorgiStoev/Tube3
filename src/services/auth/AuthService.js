@@ -59,5 +59,16 @@ export default {
             //         console.log(user)
             //     });
             // });
+    },
+    updateUser(id, user) {
+        console.log(id)
+        firebase
+            .firestore()
+            .collection('users')
+            .doc(id)
+            .set(user)
+            .then(() => {
+                Router.go({ path: Router.path });
+            });
     }
 }

@@ -14,7 +14,7 @@
             <i class="far fa-trash-alt fa-3x pointer" v-on:click="deleteVideo()" style="color: red;"></i>
         </div>
         <div class="col-5 pt-3 m-1">
-            <i class="fas fa-heart fa-3x pointer" style="color:#FF0000;"></i>
+            <i class="fas fa-heart fa-3x pointer" v-on:click="addToFavourites()" style="color:#FF0000;"></i>
         </div>
     </div>
     </div>
@@ -32,7 +32,8 @@ export default {
         return {
             uploader: {},
             video: {},
-            isCreator: false
+            isCreator: false,
+            upId: ''
         }   
     },
     created() {
@@ -45,6 +46,7 @@ export default {
                     .getUserById(this.video.uploaderId)
                     .onSnapshot((userRef) => {
                         userRef.forEach((doc) => {
+                            this.upId = doc.id;
                             this.uploader = doc.data();
                             if (this.uploader.uid == this.video.uploaderId) {
                                 this.isCreator = true;
@@ -56,6 +58,12 @@ export default {
     methods: {
         deleteVideo() {
             VideoService.deleteVideo(this.$route.params.videoId);
+        },
+        addToFavourites() {
+            if (!this.uploader.favourites.includes(this.$route.params.videoId)) {
+                this.uploader.favourites.push(this.$route.params.videoId);
+                AuthService.updateUser(this.upId, this.uploader);
+            }
         }
     }
 }
