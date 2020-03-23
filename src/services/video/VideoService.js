@@ -41,5 +41,18 @@ export default {
             .collection('videos')
             .doc(id)
             .get();
+    },
+    deleteVideo(id) {
+        firebase
+            .firestore()
+            .collection('videos')
+            .doc(id)
+            .delete()
+            .then(() => {
+                Router.push("/");
+            })
+            .catch((err) => {
+                alert(err.message);
+            });
     }
 }

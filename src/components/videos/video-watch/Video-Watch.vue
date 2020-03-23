@@ -9,11 +9,9 @@
             <img :src="uploader.imageUrl" width="75" height="75" class="rounded-circle rounded mx-auto d-block" />
             <span class="badge badge-primary">{{uploader.firstName + "  " + uploader.lastName}}</span>
         </div>
-        <div class="col-5 pt-2">
-           
-                <i class="fas fa-grip-horizontal fa-3x pointer" style="color: #33ddff;"></i>
-                <i class="far fa-trash-alt fa-3x pointer" style="color:#FF0000;"></i>
-           
+        <div v-if="isCreator" class="col-5 pt-2">
+            <i class="fas fa-grip-horizontal fa-3x pointer" style="color: blue;"></i>
+            <i class="far fa-trash-alt fa-3x pointer" v-on:click="deleteVideo()" style="color: red;"></i>
         </div>
         <div class="col-5 pt-3 m-1">
             <i class="fas fa-heart fa-3x pointer" style="color:#FF0000;"></i>
@@ -33,25 +31,32 @@ export default {
     data: function() {
         return {
             uploader: {},
-            video:{}
+            video: {},
+            isCreator: false
         }   
     },
     created() {
         VideoService
             .getVideoById(this.$route.params.videoId)
             .then((doc) => {
+                this.video.id = doc.id;
                 this.video = doc.data();
                 AuthService
                     .getUserById(this.video.uploaderId)
                     .onSnapshot((userRef) => {
                         userRef.forEach((doc) => {
                             this.uploader = doc.data();
+                            if (this.uploader.uid == this.video.uploaderId) {
+                                this.isCreator = true;
+                            }
                         });
                     });
             });
     },
     methods: {
-        
+        deleteVideo() {
+            VideoService.deleteVideo(this.$route.params.videoId);
+        }
     }
 }
 </script>
