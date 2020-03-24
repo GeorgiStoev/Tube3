@@ -68,7 +68,7 @@ export default {
             .doc(id)
             .set(user)
             .then(() => {
-                Router.go({ path: Router.path });
+                Router.push('/video-favourites');
             });
     }
 }

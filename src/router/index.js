@@ -10,9 +10,6 @@ let router = new Router({
             path: '/',
             name: 'home',
             component: () => import('../components/home/Home.vue')
-            // meta: {
-            //     requiresAuth: true
-            // }
         },
         {
             path: '/signin',
@@ -43,8 +40,16 @@ let router = new Router({
             name: 'Video-Create',
             component: () => import('../components/videos/video-create/Video-Create.vue'),
              meta: {
-                 requiresAuth: true
-             }
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/video-favourites',
+            name: 'Video-Favourites',
+            component: () => import('../components/videos/video-favourites/Video-Favourites.vue'),
+             meta: {
+                requiresAuth: true
+            }
         }
     ]
 });

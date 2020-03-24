@@ -25,7 +25,7 @@
 
 import VideoService from '../../../services/video/VideoService';
 import AuthService from '../../../services/auth/AuthService';
-//import firebase from 'firebase';
+
 export default {
     name: 'Video-Watch',
     data: function() {

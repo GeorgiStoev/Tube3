@@ -27,7 +27,7 @@
           <i><router-link class="routerLink" to="/video-create">
             <i class="fas fa-plus-square fa-3x pointer" style="color:white;"></i>
           </router-link></i>
-          <i><router-link class="routerLink" to="">
+          <i><router-link class="routerLink" to="/video-favourites">
             <i class="fas fa-heart fa-3x pointer" style="color:#FF0000;"></i>
           </router-link></i>
           <i><router-link class="routerLink" to="">
