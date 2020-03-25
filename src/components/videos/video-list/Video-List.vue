@@ -35,7 +35,7 @@ export default {
         return {
             music: videoService.listByCategory('Music'),
             news: videoService.listByCategory('News'),
-            sport: videoService.listByCategory('sport')
+            sport: videoService.listByCategory('Sport')
         };
     },
     methods: {

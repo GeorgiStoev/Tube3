@@ -57,6 +57,16 @@ export default {
             });
         return videos;
     },
+    updateVideo(id, video) {
+        return firebase
+            .firestore()
+            .collection('videos')
+            .doc(id)
+            .set(video)
+            .then(() => {
+                Router.push(`/video-watch/${id}`);
+            });
+    },
     deleteVideo(id) {
         firebase
             .firestore()
