@@ -50,6 +50,14 @@ let router = new Router({
              meta: {
                 requiresAuth: true
             }
+        },
+        {
+            path: '/user-profile',
+            name: 'User-Profile',
+            component: () => import('../components/user/User-Profile.vue'),
+             meta: {
+                requiresAuth: true
+            }
         }
     ]
 });

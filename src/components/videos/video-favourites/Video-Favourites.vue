@@ -14,7 +14,6 @@
 
 import VideoService from '../../../services/video/VideoService';
 import AuthService from '../../../services/auth/AuthService';
-import firebase from 'firebase';
 import Video from '../video/Video';
 
 export default {
@@ -30,7 +29,7 @@ export default {
     methods: {
         getUserFavourites() {
             AuthService
-                .getUserById(firebase.auth().currentUser.uid)
+                .getCurrentUser()
                 .onSnapshot((userRef) => {
                     userRef.forEach((doc) => {
                         doc.data().favourites.forEach((videoId) => {

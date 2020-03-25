@@ -30,7 +30,7 @@
           <i><router-link class="routerLink" to="/video-favourites">
             <i class="fas fa-heart fa-3x pointer" style="color:#FF0000;"></i>
           </router-link></i>
-          <i><router-link class="routerLink" to="">
+          <i><router-link class="routerLink" to="/user-profile">
            <i class="fas fa-user fa-3x pointer" style="color:black;"></i>
           </router-link></i>
           <i v-on:click="logout" class="da fas fa-sign-out-alt fa-3x pointer"></i>

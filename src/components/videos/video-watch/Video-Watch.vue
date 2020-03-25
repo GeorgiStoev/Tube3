@@ -37,6 +37,7 @@ export default {
         }   
     },
     created() {
+        ///neeeeed to be a methooood
         VideoService
             .getVideoById(this.$route.params.videoId)
             .then((doc) => {

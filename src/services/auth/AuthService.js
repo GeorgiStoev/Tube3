@@ -25,6 +25,7 @@ export default {
                         firstName,
                         lastName,
                         imageUrl,
+                        email,
                         favourites: [],
                         uid: firebase.auth().currentUser.uid
                     })
@@ -49,6 +50,19 @@ export default {
           });
     },
     getUserById(id) {
+        return firebase
+            .firestore()
+            .collection('users')
+            .where("uid", "==", id);
+            // .onSnapshot((userRef) => {
+            //     userRef.forEach((doc) => {
+            //         user = doc.data();
+            //         console.log(user)
+            //     });
+            // });
+    },
+    getCurrentUser() {
+        const id = firebase.auth().currentUser.uid;
         return firebase
             .firestore()
             .collection('users')

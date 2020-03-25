@@ -30,7 +30,7 @@ import videoService from '../../../services/video/VideoService';
 import Video from '../video/Video';
 
 export default {
-    name: 'video-list',
+    name: 'Video-List',
     data: function() {
         return {
             music: videoService.listByCategory('Music'),
