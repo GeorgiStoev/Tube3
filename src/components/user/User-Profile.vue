@@ -8,25 +8,27 @@
         <span class="border-top border-bottom">{{user.email}}</span>
     </div>
         <h2 class="text-center pt-3" ><span class="badge badge-primary"><strong>My Videos</strong></span></h2>
-        <!-- <div class="row">
-        <Video v-for="video in music" v-bind:key="video.id" v-bind:video="video">
+        <div class="row">
+        <Video v-for="video in videos" v-bind:key="video.id" v-bind:video="video">
         <div class="col-lg-2">
         </div>
         </Video>
-        </div> -->
+        </div>
 </div>
 </template>
 
 <script>
 
 import AuthService from '../../services/auth/AuthService';
-
+import VideoService from '../../services/video/VideoService';
+import Video from '../videos/video/Video';
 
 export default {
     name: 'User-Profile',
     data: function() {
         return {
-            user: {}
+            user: {},
+            videos: VideoService.getCurrentUserVideos()
         };
     },
     created() {
@@ -44,7 +46,7 @@ export default {
         }
     },
     components: {
-        
+        Video
     }
 }
 </script>

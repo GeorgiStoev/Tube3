@@ -42,6 +42,21 @@ export default {
             .doc(id)
             .get();
     },
+    getCurrentUserVideos() {
+        const videos = [];
+        firebase
+            .firestore()
+            .collection("videos")
+            .where("uploaderId", '==', firebase.auth().currentUser.uid)
+            .onSnapshot((videoRef) => {
+                videoRef.forEach((doc) => {
+                    const video = doc.data();
+                    video.id = doc.id;
+                    videos.push(video);
+                });
+            });
+        return videos;
+    },
     deleteVideo(id) {
         firebase
             .firestore()
