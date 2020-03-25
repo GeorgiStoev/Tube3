@@ -9,8 +9,12 @@
             <img :src="uploader.imageUrl" width="75" height="75" class="rounded-circle rounded mx-auto d-block" />
             <span class="badge badge-primary">{{uploader.firstName + "  " + uploader.lastName}}</span>
         </div>
-        <div v-if="isCreator" class="col-5 pt-2">
+        <div class="col-5 pt-2">
+            <i>
+            <router-link class="routerLink" :to="{ name: 'Video-Edit', params: { videoId: $route.params.videoId } }">
             <i class="fas fa-grip-horizontal fa-3x pointer" style="color: blue;"></i>
+            </router-link>
+            </i>
             <i class="far fa-trash-alt fa-3x pointer" v-on:click="deleteVideo()" style="color: red;"></i>
         </div>
         <div class="col-5 pt-3 m-1">
@@ -30,8 +34,8 @@ export default {
     name: 'Video-Watch',
     data: function() {
         return {
-            uploader: {},
-            video: {},
+            uploader: { },
+            video: { },
             isCreator: false,
             upId: ''
         }   
@@ -44,7 +48,6 @@ export default {
         VideoService
             .getVideoById(this.$route.params.videoId)
             .then((doc) => {
-                this.video.id = doc.id;
                 this.video = doc.data();
                 AuthService
                     .getUserById(this.video.uploaderId)

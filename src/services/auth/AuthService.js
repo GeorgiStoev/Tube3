@@ -17,7 +17,7 @@ export default {
         firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
-            .then(user => {
+            .then(() => {
                 firebase
                     .firestore()
                     .collection("users")
@@ -30,7 +30,6 @@ export default {
                         uid: firebase.auth().currentUser.uid
                     })
                     .then(() => {
-                        alert(`Account created for ${user.email}`);
                         Router.go({ path: Router.path });
                     })
                     .catch((err) => {

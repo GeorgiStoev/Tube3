@@ -36,6 +36,14 @@ let router = new Router({
             }
         },
         {
+            path: '/video-edit/:videoId',
+            name: 'Video-Edit',
+            component: () => import('../components/videos/video-edit/Video-Edit.vue'),
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
             path: '/video-create',
             name: 'Video-Create',
             component: () => import('../components/videos/video-create/Video-Create.vue'),
