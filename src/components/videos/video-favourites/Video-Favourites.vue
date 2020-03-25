@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h2 class="text-center pt-5"><span class="badge badge-danger"><strong>favourites</strong></span></h2>
+    <h1 class="text-center pt-5"><span class="badge badge-danger"><strong>favourites</strong></span></h1>
     <div class="row">
     <Video v-for="video in favourites" v-bind:key="video.id" v-bind:video="video">
     <div class="col-lg-2">
@@ -46,7 +46,6 @@ export default {
                         })
                     });
                 });
-
         }
     },
     components: {

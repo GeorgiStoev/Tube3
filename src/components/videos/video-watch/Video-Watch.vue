@@ -37,7 +37,10 @@ export default {
         }   
     },
     created() {
-        ///neeeeed to be a methooood
+        this.loadData();
+    },
+    methods: {
+        loadData() {
         VideoService
             .getVideoById(this.$route.params.videoId)
             .then((doc) => {
@@ -55,8 +58,7 @@ export default {
                         });
                     });
             });
-    },
-    methods: {
+        },
         deleteVideo() {
             VideoService.deleteVideo(this.$route.params.videoId);
         },

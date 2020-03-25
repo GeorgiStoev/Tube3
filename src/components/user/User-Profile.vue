@@ -2,7 +2,6 @@
 <div>
     <div class="center pt-5">
         <img :src="user.imageUrl" width="255" height="235" class="rounded-circle rounded mx-auto d-block" />
-
     </div>
     <div class="text-center pt-3">
         <h1><span class="badge badge-danger"><strong>{{user.firstName + " " +  user.lastName}}</strong></span></h1>
