@@ -5,9 +5,19 @@
     <form class="mx-auto w-50">
       <div class="form-group">
         <label for="name" class="text-info">Name</label>
-        <input name="name" type="name" class="form-control" id="name" v-model="name" />
+        <input
+          name="name"
+          type="name"
+          class="form-control"
+          id="name"
+          v-model="name"
+          @blur="$v.name.$touch"
+        />
       </div>
-      <div class="alert alert-danger text-center">Name is required!</div>
+      <template v-if="$v.name.$error">
+        <div v-if="!$v.name.required" class="alert alert-danger text-center">Name is required!</div>
+        <div v-if="!$v.name.minLength" class="alert alert-danger text-center">Name is too short!</div>
+      </template>
       <div class="form-group">
         <label for="category" class="text-info">Category:</label>
         <select
@@ -16,6 +26,7 @@
           id="category"
           for="Category"
           v-model="category"
+          @blur="$v.category.$touch"
         >
           <option>--- Select Video Category ---</option>
           <option>Music</option>
@@ -23,12 +34,29 @@
           <option>Sport</option>
         </select>
       </div>
-      <div class="alert alert-danger text-center">Category is required!</div>
+      <template v-if="$v.category.$error">
+        <div
+          v-if="!$v.category.required"
+          class="alert alert-danger text-center"
+        >Categoty is required!</div>
+      </template>
       <div class="form-group">
         <label for="videoUrl" class="text-info">Video Url</label>
-        <input name="videoUrl" type="name" class="form-control" id="videoUrl" v-model="videoUrl" />
+        <input
+          name="videoUrl"
+          type="name"
+          class="form-control"
+          id="videoUrl"
+          v-model="videoUrl"
+          @blur="$v.videoUrl.$touch"
+        />
       </div>
-      <div class="alert alert-danger text-center">Video Url is required!</div>
+      <template v-if="$v.videoUrl.$error">
+        <div
+          v-if="!$v.videoUrl.required"
+          class="alert alert-danger text-center"
+        >Video Url is required!</div>
+      </template>
       <div class="button-holder d-flex justify-content-center">
         <button
           v-on:click="edit"
@@ -42,9 +70,12 @@
 
 <script>
 import VideoService from "../../../services/video/VideoService";
+import { validationMixin } from "vuelidate";
+import { required, minLength } from "vuelidate/lib/validators";
 
 export default {
   name: "Video-Edit",
+  mixins: [validationMixin],
   data: function() {
     return {
       video: {},
@@ -55,6 +86,18 @@ export default {
   },
   created() {
     this.getVideo();
+  },
+  validations: {
+    name: {
+      required,
+      minLength: minLength(3)
+    },
+    category: {
+      required
+    },
+    videoUrl: {
+      required
+    }
   },
   methods: {
     edit: function(e) {

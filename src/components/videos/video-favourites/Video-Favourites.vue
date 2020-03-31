@@ -35,8 +35,8 @@ export default {
           doc.data().favourites.forEach(videoId => {
             VideoService.getVideoById(videoId).then(videoDoc => {
               let video = videoDoc.data();
-              video.id = videoDoc.id;
               if (video) {
+                video.id = videoDoc.id;
                 this.favourites.push(video);
               }
             });
