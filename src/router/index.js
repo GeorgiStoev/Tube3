@@ -66,6 +66,11 @@ let router = new Router({
             meta: {
                 requiresAuth: true
             }
+        },
+        {
+            path: '*',
+            name: 'not-found',
+            component: () => import('../components/not-found/Not-Found.vue')
         }
     ]
 });
