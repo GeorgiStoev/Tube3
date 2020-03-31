@@ -64,14 +64,12 @@ export default {
   name: "navbar",
   data() {
     return {
-      isLoggedIn: false,
-      currentUser: false
+      isLoggedIn: false
     };
   },
   created() {
     if (firebase.auth().currentUser) {
       this.isLoggedIn = true;
-      this.currentUser = firebase.auth().currentUser.email;
     }
   },
   methods: {
