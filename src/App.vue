@@ -2,31 +2,27 @@
   <div id="app">
     <Header />
     <router-view></router-view>
-    
+
     <Footer />
   </div>
 </template>
 
 <script>
-
- import Header from './components/core/Header';
- //import Home from './components/home/Home';
- import Footer from './components/core/Footer';
-
+import Header from "./components/core/Header";
+//import Home from './components/home/Home';
+import Footer from "./components/core/Footer";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-     Header,
-     //Home,
-     Footer
+    Header,
+    //Home,
+    Footer
   }
-}
-
+};
 </script>
 
 <style>
 #app {
-  
 }
 </style>

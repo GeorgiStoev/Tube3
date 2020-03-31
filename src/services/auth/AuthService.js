@@ -9,9 +9,9 @@ export default {
             .then(() => {
                 Router.go({ path: Router.path });
             },
-            err => {
-                alert(err.message);
-            });
+                err => {
+                    alert(err.message);
+                });
     },
     signUp(firstName, lastName, imageUrl, email, password) {
         firebase
@@ -36,29 +36,29 @@ export default {
                         alert(err.message);
                     });
             },
-            err => {
-                alert(err.message);
-            });
+                err => {
+                    alert(err.message);
+                });
     },
     signOut() {
         firebase
-          .auth()
-          .signOut()
-          .then(() => {
-            Router.go({ path: Router.path });
-          });
+            .auth()
+            .signOut()
+            .then(() => {
+                Router.go({ path: Router.path });
+            });
     },
     getUserById(id) {
         return firebase
             .firestore()
             .collection('users')
             .where("uid", "==", id);
-            // .onSnapshot((userRef) => {
-            //     userRef.forEach((doc) => {
-            //         user = doc.data();
-            //         console.log(user)
-            //     });
-            // });
+        // .onSnapshot((userRef) => {
+        //     userRef.forEach((doc) => {
+        //         user = doc.data();
+        //         console.log(user)
+        //     });
+        // });
     },
     getCurrentUser() {
         const id = firebase.auth().currentUser.uid;
@@ -66,12 +66,12 @@ export default {
             .firestore()
             .collection('users')
             .where("uid", "==", id);
-            // .onSnapshot((userRef) => {
-            //     userRef.forEach((doc) => {
-            //         user = doc.data();
-            //         console.log(user)
-            //     });
-            // });
+        // .onSnapshot((userRef) => {
+        //     userRef.forEach((doc) => {
+        //         user = doc.data();
+        //         console.log(user)
+        //     });
+        // });
     },
     updateUser(id, user) {
         console.log(id)

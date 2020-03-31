@@ -15,17 +15,17 @@ let router = new Router({
             path: '/signin',
             name: 'SignIn',
             component: () => import('../components/auth/SignIn.vue'),
-             meta: {
-                 requiresGuest: true
-             }
+            meta: {
+                requiresGuest: true
+            }
         },
         {
             path: '/signup',
             name: 'SignUp',
             component: () => import('../components/auth/SignUp.vue'),
-             meta: {
-                 requiresGuest: true
-             }
+            meta: {
+                requiresGuest: true
+            }
         },
         {
             path: '/video-watch/:videoId',
@@ -47,7 +47,7 @@ let router = new Router({
             path: '/video-create',
             name: 'Video-Create',
             component: () => import('../components/videos/video-create/Video-Create.vue'),
-             meta: {
+            meta: {
                 requiresAuth: true
             }
         },
@@ -55,7 +55,7 @@ let router = new Router({
             path: '/video-favourites',
             name: 'Video-Favourites',
             component: () => import('../components/videos/video-favourites/Video-Favourites.vue'),
-             meta: {
+            meta: {
                 requiresAuth: true
             }
         },
@@ -63,7 +63,7 @@ let router = new Router({
             path: '/user-profile',
             name: 'User-Profile',
             component: () => import('../components/user/User-Profile.vue'),
-             meta: {
+            meta: {
                 requiresAuth: true
             }
         }
@@ -71,8 +71,8 @@ let router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-    if(to.matched.some(record => record.meta.requiresAuth)) {
-        if(!firebase.auth().currentUser) {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (!firebase.auth().currentUser) {
             next({
                 path: '/signin',
                 query: {
@@ -82,9 +82,9 @@ router.beforeEach((to, from, next) => {
         } else {
             next();
         }
-    } else if(to.matched.some(record => record.meta.requiresGuest)) {
-        if(to.matched.some(record => record.meta.requiresGuest)) {
-            if(firebase.auth().currentUser) {
+    } else if (to.matched.some(record => record.meta.requiresGuest)) {
+        if (to.matched.some(record => record.meta.requiresGuest)) {
+            if (firebase.auth().currentUser) {
                 next({
                     path: '/',
                     query: {

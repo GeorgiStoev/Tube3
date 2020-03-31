@@ -1,37 +1,40 @@
 <template>
-<div>
+  <div>
     <div class="jumbotron">
-    <div class="page-header">
+      <div class="page-header">
         <div class="pull-left">
-            <!-- <ng-template [ngIf]="!isAuth"> -->
-                <h2 class="display-3 text-muted">Welcome, Guest!</h2>
-            <!-- </ng-template> -->
-            <!-- <ng-template [ngIf]="isAuth">
+          <!-- <ng-template [ngIf]="!isAuth"> -->
+          <h2 class="display-3 text-muted">Welcome, Guest!</h2>
+          <!-- </ng-template> -->
+          <!-- <ng-template [ngIf]="isAuth">
                 <ng-template [ngIf]="userFullName">
                     <h2 class="display-3 text-muted">Welcome, {{userFullName}}!</h2>
                 </ng-template>
-            </ng-template> -->
+          </ng-template>-->
         </div>
         <div class="clearfix">
-            <h3 class="text-info">Want to see Tube1?
-                <a class="nav-link active" href="http://georgistoev-001-site1.htempurl.com/">Click Here</a>
-            </h3>
+          <h3 class="text-info">
+            Want to see Tube1?
+            <a
+              class="nav-link active"
+              href="http://georgistoev-001-site1.htempurl.com/"
+            >Click Here</a>
+          </h3>
         </div>
       </div>
+    </div>
+    <Video-List />
   </div>
-  <Video-List />
-</div>
 </template>
 
 <script>
-import VideoList from '../videos/video-list/Video-List';
+import VideoList from "../videos/video-list/Video-List";
 export default {
-    components: {
-     VideoList
+  components: {
+    VideoList
   }
-}
+};
 </script>
 
 <style scoped>
-
 </style>
