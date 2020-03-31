@@ -62,6 +62,7 @@
           v-on:click="edit"
           type="submit"
           class="btn btn-primary btn-md align-items-md text-white"
+          :disabled="!name || !category || !videoUrl"
         >Edit</button>
       </div>
     </form>

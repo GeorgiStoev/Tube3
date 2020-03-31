@@ -46,6 +46,7 @@
           v-on:click="login"
           type="submit"
           class="btn btn-primary btn-md align-items-md text-white"
+          :disabled="!email || !password"
         >Sign In</button>
       </div>
     </form>

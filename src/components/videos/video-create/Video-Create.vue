@@ -64,6 +64,7 @@
           v-on:click="add"
           type="submit"
           class="btn btn-primary btn-md align-items-md text-white"
+          :disabled="!name || !category || !videoUrl"
         >Add</button>
       </div>
     </form>

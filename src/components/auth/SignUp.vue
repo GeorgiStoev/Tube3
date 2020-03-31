@@ -136,6 +136,7 @@
           v-on:click="register"
           type="submit"
           class="btn btn-primary btn-md align-items-md text-white"
+          :disabled="!firstName || !lastName || !password || !confPassword || !email || !imageUrl"
         >Sign Up</button>
       </div>
     </form>
