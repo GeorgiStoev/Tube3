@@ -75,12 +75,6 @@ export default {
   methods: {
     logout: function() {
       authService.signOut();
-      // firebase
-      //   .auth()
-      //   .signOut()
-      //   .then(() => {
-      //     this.$router.go({ path: this.$router.path });
-      //   });
     }
   }
 };

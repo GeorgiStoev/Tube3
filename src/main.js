@@ -14,7 +14,6 @@ require('firebase/firestore');
 firebase.initializeApp(firebaseConfig);
 Vue.prototype.$firebase = firebase;
 
-
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
 

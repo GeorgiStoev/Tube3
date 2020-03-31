@@ -53,12 +53,6 @@ export default {
             .firestore()
             .collection('users')
             .where("uid", "==", id);
-        // .onSnapshot((userRef) => {
-        //     userRef.forEach((doc) => {
-        //         user = doc.data();
-        //         console.log(user)
-        //     });
-        // });
     },
     getCurrentUser() {
         const id = firebase.auth().currentUser.uid;
@@ -66,12 +60,6 @@ export default {
             .firestore()
             .collection('users')
             .where("uid", "==", id);
-        // .onSnapshot((userRef) => {
-        //     userRef.forEach((doc) => {
-        //         user = doc.data();
-        //         console.log(user)
-        //     });
-        // });
     },
     updateUser(id, user) {
         console.log(id)
