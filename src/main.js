@@ -6,6 +6,7 @@ import firebaseConfig from './firebase/firebaseConfig';
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css'
 import firebase from 'firebase';
+import Vuelidate from 'vuelidate'
 
 import "../node_modules/bootswatch/dist/lumen/bootstrap.min.css";
 
@@ -15,6 +16,7 @@ Vue.prototype.$firebase = firebase;
 
 
 Vue.use(BootstrapVue);
+Vue.use(Vuelidate);
 
 Vue.config.productionTip = false;
 
