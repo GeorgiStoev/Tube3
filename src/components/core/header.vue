@@ -30,11 +30,6 @@
       <ul v-if="isLoggedIn" class="navbar-nav ml-auto">
         <li class="nav-item">
           <i>
-            <router-link class="routerLink" to>
-              <i class="fab fa-searchengin fa-3x" style="color:darkorange;"></i>
-            </router-link>
-          </i>
-          <i>
             <router-link class="routerLink" to="/video-create">
               <i class="fas fa-plus-square fa-3x pointer" style="color:white;"></i>
             </router-link>

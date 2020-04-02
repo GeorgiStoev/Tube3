@@ -49,7 +49,7 @@ export default {
   methods: {
     getNames() {
       authService
-        .getUserById(firebase.auth().currentUser.uid)
+        .getCurrentUser()
         .onSnapshot(userRef => {
           userRef.forEach(doc => {
             this.names = doc.data().firstName + " " + doc.data().lastName;

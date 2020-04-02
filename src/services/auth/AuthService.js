@@ -71,5 +71,8 @@ export default {
             .then(() => {
                 Router.push('/video-favourites');
             });
+    },
+    getUid() {
+        return firebase.auth().currentUser.uid;
     }
 }

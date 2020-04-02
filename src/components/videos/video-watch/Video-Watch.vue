@@ -25,7 +25,7 @@
           <span class="badge badge-primary">{{uploader.firstName + " " + uploader.lastName}}</span>
         </div>
         <div class="col-5 pt-2">
-          <i>
+          <i v-if="isCreator">
             <router-link
               class="routerLink"
               :to="{ name: 'Video-Edit', params: { videoId: $route.params.videoId } }"
@@ -33,7 +33,12 @@
               <i class="fas fa-grip-horizontal fa-3x pointer" style="color: blue;"></i>
             </router-link>
           </i>
-          <i class="far fa-trash-alt fa-3x pointer" v-on:click="deleteVideo()" style="color: red;"></i>
+          <i
+            v-if="isCreator"
+            class="far fa-trash-alt fa-3x pointer"
+            v-on:click="deleteVideo()"
+            style="color: red;"
+          ></i>
         </div>
         <div class="col-5 pt-3 m-1">
           <i
@@ -58,6 +63,8 @@ export default {
       uploader: {},
       video: {},
       isCreator: false,
+      curUser: {},
+      curUserId: "",
       upId: ""
     };
   },
@@ -72,7 +79,7 @@ export default {
           userRef.forEach(doc => {
             this.upId = doc.id;
             this.uploader = doc.data();
-            if (this.uploader.uid == this.video.uploaderId) {
+            if (AuthService.getUid() == this.video.uploaderId) {
               this.isCreator = true;
             }
           });
@@ -83,10 +90,17 @@ export default {
       VideoService.deleteVideo(this.$route.params.videoId);
     },
     addToFavourites() {
-      if (!this.uploader.favourites.includes(this.$route.params.videoId)) {
-        this.uploader.favourites.push(this.$route.params.videoId);
-        AuthService.updateUser(this.upId, this.uploader);
-      }
+      AuthService.getCurrentUser().onSnapshot(userRef => {
+        userRef.forEach(doc => {
+          this.curUserId = doc.id;
+          this.curUser = doc.data();
+        });
+
+        if (!this.curUser.favourites.includes(this.$route.params.videoId)) {
+          this.curUser.favourites.push(this.$route.params.videoId);
+          AuthService.updateUser(this.curUserId, this.curUser);
+        }
+      });
     }
   }
 };
