@@ -15,3 +15,10 @@ npm run serve
 ```
 ## Built With
 * [Vue](https://vuejs.org/)
+
+## Overview
+![](images/Capture.PNG)
+
+![](images/Capture1.PNG)
+
+![](images/Capture3.PNG)
