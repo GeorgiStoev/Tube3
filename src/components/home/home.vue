@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script>
+<script>          
 import authService from "../../services/auth/AuthService";
 import VideoList from "../videos/video-list/Video-List";
 
