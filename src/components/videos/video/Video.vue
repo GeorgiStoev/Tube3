@@ -1,8 +1,8 @@
 <template>
-  <div class="card" style="width: 17rem;">
+  <div class="card" style="width: 17.5rem;">
     <iframe
       :src="video.videoUrl"
-      width="270"
+      width="278"
       height="250"
       frameborder="0"
       webkitallowfullscreen

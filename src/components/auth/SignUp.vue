@@ -38,10 +38,10 @@
           id="lastName"
           placeholder="lastName..."
           v-model="lastName"
-          @blur="$v.firstName.$touch"
+          @blur="$v.lastName.$touch"
         />
       </div>
-      <template v-if="$v.firstName.$error">
+      <template v-if="$v.lastName.$error">
         <div
           v-if="!$v.lastName.required"
           class="alert alert-danger text-center"
