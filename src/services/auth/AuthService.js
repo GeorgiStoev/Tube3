@@ -62,7 +62,6 @@ export default {
             .where("uid", "==", id);
     },
     updateUser(id, user) {
-        console.log(id)
         firebase
             .firestore()
             .collection('users')
