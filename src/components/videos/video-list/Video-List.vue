@@ -6,7 +6,7 @@
       </span>
     </h2>
     <div class="row">
-      <Video v-for="video in music" v-bind:key="video.id" :id="video.id" :name="video.name" :videoUrl="video.videoUrl">
+      <Video v-for="video in music" v-bind:key="video.id" :video="video">
         <div class="col-lg-2"></div>
       </Video>
     </div>
@@ -16,7 +16,7 @@
       </span>
     </h2>
     <div class="row">
-      <Video v-for="video in news" v-bind:key="video.id" :id="video.id" :name="video.name" :videoUrl="video.videoUrl">
+      <Video v-for="video in news" v-bind:key="video.id" :video="video">
         <div class="col-lg-2"></div>
       </Video>
     </div>
@@ -26,7 +26,7 @@
       </span>
     </h2>
     <div class="row">
-      <Video v-for="video in sport" v-bind:key="video.id" :id="video.id" :name="video.name" :videoUrl="video.videoUrl">
+      <Video v-for="video in sport" v-bind:key="video.id" :video="video">
         <div class="col-lg-2"></div>
       </Video>
     </div>
